@@ -5,6 +5,7 @@ import db from "./utils/db.js";
 
 // import all routes
 import userRoutes from "./routes/user.routes.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 dotenv.config();
@@ -13,18 +14,16 @@ app.use(
   cors({
     origin: process.env.BASE_URL,
     methods: ["GET", "POST", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Contant-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
-});
-app.get("/jay", (req, res) => {
-  res.send("Jay");
 });
 
 // connect to db.

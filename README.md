@@ -9,3 +9,4 @@
 ## Database Connection
 
 - install mongoose ("npm i mongoose")
+- send email for "nodemailer" => "npm install nodemailer", and free mail sender from mailtrap
